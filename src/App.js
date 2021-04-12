@@ -1,33 +1,39 @@
-import  React, {Component} from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Dropdown from './components/Dropdown';
+import Footer from './components/Footer';
+import Hero from './components/Hero';
+import InfoSection from './components/InfoSection';
+import InteriorSection from './components/InteriorSection';
+import ModernDesign from './components/ModernDesignSection/index';
+import Navbar from './components/Navbar/Navbar'
+import NewHomes from './components/NewHomes';
+import { InfoData, InfoDataThree, InfoDataTwo, InfoDataFour, InfoDataFive } from './data/InfoData';
+import { SliderData } from './data/SliderData';
+import GlobalStyle from './globalStyles';
 
-class App extends Component {
-    constructor() {
-      super();
-      this.state = {
-        string: 'Andrey is the boss'
-      };
-    }
+function App() {
+  const [isOpen, setIsOpen] = useState(false)
 
-    render() {
-      return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-             {this.state.string}
-            </p>
-            <button onClick={() => this.setState({string: 'Did it work?'})}>
-            Click here</button>
-          </header>
-        </div>
-      );
-  
-    }
-  }
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <GlobalStyle />
+      <Navbar />
+      <Dropdown isOpen={isOpen} toggle={toggle} />
+      <Hero slides={SliderData} />
+      <InfoSection {...InfoData } />
+      <NewHomes {...InfoDataThree} />
+      <InteriorSection {...InfoDataFour}/>
+      <ModernDesign {...InfoDataTwo} />
+      <Footer {...InfoDataFive}/>
+     
+
     
-  
-  
+    </>
+  );
+}
 
 export default App;
