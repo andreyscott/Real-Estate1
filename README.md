@@ -2,7 +2,7 @@
 (*_*)
 created using react.js
 
-with room for improvement
+with room for improvement I'm going to work on it
 
 
 https://real-estate-5317b.web.app/
